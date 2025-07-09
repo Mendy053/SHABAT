@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
-import { getApiUrl, isUsingNgrok, updateBaseUrl } from './config';
-import { detectNgrokUrl } from './utils/ngrokDetector';
 import UserSelection from './components/UserSelection';
 import MealPlanner from './components/MealPlanner';
 import LoadingSpinner from './components/LoadingSpinner';
@@ -13,37 +11,15 @@ function App() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [usingNgrok, setUsingNgrok] = useState(false);
 
   useEffect(() => {
-    initializeApp();
+    fetchUsers();
   }, []);
-
-  const initializeApp = async () => {
-    try {
-      // Try to detect ngrok URL automatically
-      const ngrokUrl = await detectNgrokUrl();
-      if (ngrokUrl) {
-        updateBaseUrl(ngrokUrl);
-        console.log('🌐 Detected ngrok URL:', ngrokUrl);
-        console.log('📱 App is now accessible from anywhere on the internet!');
-      }
-      
-      // Check if we're using ngrok
-      setUsingNgrok(isUsingNgrok());
-      
-      // Fetch users
-      await fetchUsers();
-    } catch (error) {
-      console.error('Error initializing app:', error);
-      setError('שגיאה באתחול המערכת');
-    }
-  };
 
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(getApiUrl('/api/users'));
+      const response = await axios.get('/api/users');
       setUsers(response.data);
       setError(null);
     } catch (err) {
@@ -72,11 +48,6 @@ function App() {
         <div className="error-message">
           <h2>שגיאה</h2>
           <p>{error}</p>
-          {usingNgrok && (
-            <div className="ngrok-info">
-              <p>🌐 משתמש ב-ngrok לחיבור לאינטרנט</p>
-            </div>
-          )}
           <button onClick={fetchUsers} className="retry-button">
             נסה שוב
           </button>
@@ -87,12 +58,6 @@ function App() {
 
   return (
     <div className="app">
-      {usingNgrok && (
-        <div className="ngrok-banner">
-          🌐 מחובר דרך ngrok - נגיש מכל מקום!
-        </div>
-      )}
-      
       <AnimatePresence mode="wait">
         {!selectedUser ? (
           <motion.div

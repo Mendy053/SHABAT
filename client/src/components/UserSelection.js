@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaUserPlus, FaUsers } from 'react-icons/fa';
-import { getApiUrl } from '../config';
 import AddUserModal from './AddUserModal';
 import './UserSelection.css';
 

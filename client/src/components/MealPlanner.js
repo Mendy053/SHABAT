@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSignOutAlt, FaPlus, FaEdit } from 'react-icons/fa';
 import axios from 'axios';
-import { getApiUrl } from '../config';
 import AddMealModal from './AddMealModal';
 import EditMealModal from './EditMealModal';
 import MealList from './MealList';
@@ -26,8 +25,8 @@ const MealPlanner = ({ selectedUser, onLogout }) => {
     try {
       setLoading(true);
       const [mealResponse, mealsResponse] = await Promise.all([
-        axios.get(getApiUrl('/api/meal')),
-        axios.get(getApiUrl('/api/meals'))
+        axios.get('/api/meal'),
+        axios.get('/api/meals')
       ]);
       setMeal(mealResponse.data);
       setMeals(mealsResponse.data);
@@ -68,7 +67,7 @@ const MealPlanner = ({ selectedUser, onLogout }) => {
 
   const handleDeleteMeal = async (mealId) => {
     try {
-      await axios.delete(getApiUrl(`/api/meals/${mealId}`));
+      await axios.delete(`/api/meals/${mealId}`);
       fetchData();
     } catch (err) {
       console.error('Error deleting meal:', err);
@@ -77,7 +76,7 @@ const MealPlanner = ({ selectedUser, onLogout }) => {
 
   const handleSetMealName = async (mealName) => {
     try {
-      await axios.post(getApiUrl('/api/meal'), {
+      await axios.post('/api/meal', {
         name: mealName,
         userId: selectedUser.id
       });

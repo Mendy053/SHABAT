@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaUserPlus } from 'react-icons/fa';
 import axios from 'axios';
-import { getApiUrl } from '../config';
 import './AddUserModal.css';
 
 const AddUserModal = ({ onClose, onUserAdded }) => {
@@ -28,7 +27,7 @@ const AddUserModal = ({ onClose, onUserAdded }) => {
       setLoading(true);
       setError('');
       
-      await axios.post(getApiUrl('/api/users'), {
+      await axios.post('/api/users', {
         name: name.trim(),
         color: selectedColor
       });

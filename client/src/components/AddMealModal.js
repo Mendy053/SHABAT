@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes } from 'react-icons/fa';
 import axios from 'axios';
-import { getApiUrl } from '../config';
 import './AddMealModal.css';
 
 const AddMealModal = ({ selectedUser, onClose, onMealAdded }) => {
@@ -23,7 +22,7 @@ const AddMealModal = ({ selectedUser, onClose, onMealAdded }) => {
       setLoading(true);
       setError('');
       
-      await axios.post(getApiUrl('/api/meals'), {
+      await axios.post('/api/meals', {
         name: name.trim(),
         description: description.trim(),
         userId: selectedUser.id

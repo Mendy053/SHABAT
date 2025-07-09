@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config({ path: './.env' });
+require('dotenv').config({ path: './config.env' });
 
 const db = require('./database');
 
@@ -135,11 +135,7 @@ app.delete('/api/meals/:id', async (req, res) => {
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    message: 'SHABAT API is running',
-    ngrokUrl: process.env.NGROK_URL || null
-  });
+  res.json({ status: 'OK', message: 'SHABAT API is running' });
 });
 
 // Serve React app
@@ -150,14 +146,4 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 SHABAT Server running on port ${PORT}`);
   console.log(`📱 API available at http://localhost:${PORT}/api`);
-  console.log(`💻 Health check: http://localhost:${PORT}/api/health`);
-  
-  if (process.env.NGROK_URL) {
-    console.log(`🌐 ngrok tunnel: ${process.env.NGROK_URL}`);
-    console.log(`📱 Public API: ${process.env.NGROK_URL}/api`);
-  } else {
-    console.log(`💡 Run 'npm run dev:ngrok' to start with ngrok tunnel`);
-  }
-  
-  console.log(`🕯️  Ready for Shabbat meal planning!`);
 }); 
