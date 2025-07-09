@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/SHABAT/static/css/main.7afd9da4.css",
-    "main.js": "/SHABAT/static/js/main.355c3bfa.js",
-    "index.html": "/SHABAT/index.html",
-    "main.7afd9da4.css.map": "/SHABAT/static/css/main.7afd9da4.css.map",
-    "main.355c3bfa.js.map": "/SHABAT/static/js/main.355c3bfa.js.map"
+    "main.css": "/shabat/static/css/main.98d5a3e5.css",
+    "main.js": "/shabat/static/js/main.0ad9f2f9.js",
+    "index.html": "/shabat/index.html",
+    "main.98d5a3e5.css.map": "/shabat/static/css/main.98d5a3e5.css.map",
+    "main.0ad9f2f9.js.map": "/shabat/static/js/main.0ad9f2f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.7afd9da4.css",
-    "static/js/main.355c3bfa.js"
+    "static/css/main.98d5a3e5.css",
+    "static/js/main.0ad9f2f9.js"
   ]
 }
