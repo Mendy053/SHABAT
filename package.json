@@ -1,0 +1,28 @@
+{
+  "name": "shabat",
+  "version": "1.0.0",
+  "description": "SHABAT - מערכת תכנון ארוחות שבת",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "keywords": [
+    "shabat",
+    "meal-planning",
+    "family",
+    "react",
+    "nodejs",
+    "hebrew",
+    "rtl"
+  ],
+  "author": "SHABAT Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+} 

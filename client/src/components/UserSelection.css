@@ -1,0 +1,219 @@
+.user-selection {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2C1810;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #666;
+  font-weight: 400;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.user-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-card:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  border-color: var(--user-color, #8B4513);
+}
+
+.user-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--user-color, #8B4513), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.user-card:hover::before {
+  opacity: 1;
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.user-card:hover .user-avatar {
+  transform: scale(1.1);
+}
+
+.user-initial {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2C1810;
+  margin-bottom: 10px;
+}
+
+.user-color-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-user-card {
+  border: 2px dashed #8B4513;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.add-user-card:hover {
+  border-color: #A0522D;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.add-avatar {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+.add-icon {
+  font-size: 28px;
+  color: white;
+}
+
+.footer {
+  margin-top: 30px;
+}
+
+.users-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.users-icon {
+  color: #8B4513;
+  font-size: 18px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+  
+  .subtitle {
+    font-size: 18px;
+  }
+  
+  .users-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  
+  .user-card {
+    padding: 25px 15px;
+  }
+  
+  .user-avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+  
+  .user-name {
+    font-size: 16px;
+  }
+  
+  .add-icon {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+  }
+  
+  .users-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .user-card {
+    padding: 20px 12px;
+  }
+  
+  .user-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  
+  .user-name {
+    font-size: 14px;
+  }
+  
+  .add-icon {
+    font-size: 20px;
+  }
+  
+  .users-count {
+    font-size: 14px;
+  }
+  
+  .users-icon {
+    font-size: 16px;
+  }
+} 

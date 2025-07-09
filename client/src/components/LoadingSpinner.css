@@ -1,0 +1,109 @@
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.loading-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 60px 40px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  border: 3px solid #8B4513;
+  max-width: 300px;
+  width: 100%;
+}
+
+.loading-icon {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.spinner-segment {
+  position: absolute;
+  width: 8px;
+  height: 25px;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  border-radius: 4px;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  transform: translate(-50%, -50%) rotate(calc(45deg * var(--i)));
+  opacity: calc(0.1 + 0.9 * (var(--i) / 8));
+}
+
+.loading-title {
+  color: #8B4513;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(139, 69, 19, 0.2);
+}
+
+.loading-text {
+  color: #666;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .loading-card {
+    padding: 50px 30px;
+    max-width: 280px;
+  }
+  
+  .spinner {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .spinner-segment {
+    width: 7px;
+    height: 22px;
+  }
+  
+  .loading-title {
+    font-size: 28px;
+  }
+  
+  .loading-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-card {
+    padding: 40px 25px;
+    max-width: 260px;
+  }
+  
+  .spinner {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .spinner-segment {
+    width: 6px;
+    height: 20px;
+  }
+  
+  .loading-title {
+    font-size: 24px;
+  }
+  
+  .loading-text {
+    font-size: 14px;
+  }
+} 
